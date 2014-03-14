@@ -1,0 +1,6 @@
+[submodule "clojure-oauth-example"]
+	path = clojure-oauth-example
+	url = https://github.com/RallySoftware/clojure-oauth-example.git
+[submodule "ruby-oauth-example"]
+	path = ruby-oauth-example
+	url = https://github.com/RallySoftware/ruby-oauth-example.git
