@@ -4,3 +4,6 @@
 [submodule "ruby-oauth-example"]
 	path = ruby-oauth-example
 	url = https://github.com/RallySoftware/ruby-oauth-example.git
+[submodule "python-oauth-example"]
+	path = python-oauth-example
+	url = https://github.com/RallySoftware/python-oauth-example.git
