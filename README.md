@@ -8,24 +8,24 @@ Each sample app has a README with instructions on running it and a Procfile for 
 
 
 ## Client Ids
-To create a new Oauth integration, you will need to create a client id for your new application. You can create/modify clients at `https://login.rally1.rallydev.com/client.html`  The page will ask you to enter a name and redirect_uri for your client. After saving it will give you a `client_id` and `client_secret` to use in your app. Zuul's oauth URLs are:
+To create a new Oauth integration, you will need to create a client id for your new application. You can create/modify clients at `https://rally1.rallydev.com/login/accounts/index.html#/clients`  The page will ask you to enter a name and redirect_uri for your client. After saving it will give you a `client_id` and `client_secret` to use in your app. Zuul's oauth URLs are:
 
-* Authentication `https://login.rally1.rallydev.com/oauth2/auth`
-* Token `https://login.rally1.rallydev.com/oauth2/auth`
+* Authentication `https://rally1.rallydev.com/login/oauth2/auth`
+* Token `https://rally1.rallydev.com/login/oauth2/auth`
 
 ## API Key
-API keys are strings that you can use in place of a zuul session token or username/password combination. You can generate and name as many keys as needed at https://login.rally1.rallydev.com/api_key.html To use one, you can make calls to alm with a cookie or header called `zsessionid` set to the `secret_key` value of your API key. You can delete or regenerate an existing API Key to revoke access to keys you have previously issued.
+API keys are strings that you can use in place of a zuul session token or username/password combination. You can generate and name as many keys as needed at `https://rally1.rallydev.com/login/accounts/index.html#/keys` To use one, you can make calls to alm with a cookie or header called `zsessionid` set to the `secret_key` value of your API key. You can delete or regenerate an existing API Key to revoke access to keys you have previously issued.
 
 ## Revoking Grants
-After you agree to let an oauth client access your data, you can remove the grant by visiting https://login.rally1.rallydev.com/login/grants and clicking remove on the application you do not want to have access any longer.
+After you agree to let an oauth client access your data, you can remove the grant by visiting `https://rally1.rallydev.com/login/accounts/index.html#/apps` and clicking remove on the application you do not want to have access any longer.
 
 ## Workflow 
 
-Go to `https://login.rally1.rallydev.com/client.html` and create a new Client for your application. Save the Client ID and Client Secret. 
+Go to `https://rally1.rallydev.com/login/accounts/index.html#/clients` and create a new Client for your application. Save the Client ID and Client Secret. 
 
 To gain an access token for a user from your app first
 
-redirect to `https://login.rally1.rallydev.com/oauth2/auth`
+redirect to `https://rally1.rallydev.com/login/oauth2/auth`
 
 Encode the following parameters onto the URL
 
@@ -33,9 +33,9 @@ Encode the following parameters onto the URL
 * `response_type` set to 'code'.
 * `redirect_uri` this must match the URL you specified when creating your client id and secret. 
 * `client_id` is the client_id that was created in Rally. 
-* `scope` set to 'openid'.
+* `scope` set to 'alm'.
 
-For example: `https://rally1.rallydev.com/login/oauth2/auth?state=e347b102-6029-49b0-81d7-5089d846812e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2Foauth-redirect&client_id=817b4273628c415cddfd657ab7224582&scope=openid`
+For example: `https://rally1.rallydev.com/login/oauth2/auth?state=e347b102-6029-49b0-81d7-5089d846812e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4567%2Foauth-redirect&client_id=817b4273628c415cddfd657ab7224582&scope=alm`
 
 In the handler for the URL you redirect to you need to get the code from the parameters and POST to the token endpoint. 
 
@@ -46,7 +46,7 @@ You will recieve a JSON body with 'state' and 'code'.
 
 To exchange the auth token for an access token:
 
-`POST to https://login.rally1.rallydev.com/oauth2/auth`
+`POST to https://rally1.rallydev.com/login/oauth2/auth`
 
 The BODY must contain the following parameters in URL/form encoded format.
 
