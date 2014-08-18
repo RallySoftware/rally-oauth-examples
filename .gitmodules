@@ -7,3 +7,6 @@
 [submodule "python-oauth-example"]
 	path = python-oauth-example
 	url = https://github.com/RallySoftware/python-oauth-example.git
+[submodule "node-oauth-example"]
+	path = node-oauth-example
+	url = https://github.com/RallySoftware/node-oauth-example.git
