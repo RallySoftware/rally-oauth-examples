@@ -11,7 +11,7 @@ Each sample app has a README with instructions on running it and a Procfile for 
 To create a new Oauth integration, you will need to create a client id for your new application. You can create/modify clients at `https://rally1.rallydev.com/login/accounts/index.html#/clients`  The page will ask you to enter a name and redirect_uri for your client. After saving it will give you a `client_id` and `client_secret` to use in your app. Zuul's oauth URLs are:
 
 * Authentication `https://rally1.rallydev.com/login/oauth2/auth`
-* Token `https://rally1.rallydev.com/login/oauth2/auth`
+* Token `https://rally1.rallydev.com/login/oauth2/token`
 
 ## API Key
 API keys are strings that you can use in place of a zuul session token or username/password combination. You can generate and name as many keys as needed at `https://rally1.rallydev.com/login/accounts/index.html#/keys` To use one, you can make calls to alm with a cookie or header called `zsessionid` set to the `secret_key` value of your API key. You can delete or regenerate an existing API Key to revoke access to keys you have previously issued.
@@ -46,7 +46,7 @@ You will recieve a JSON body with 'state' and 'code'.
 
 To exchange the auth token for an access token:
 
-`POST to https://rally1.rallydev.com/login/oauth2/auth`
+`POST to https://rally1.rallydev.com/login/oauth2/token`
 
 The BODY must contain the following parameters in URL/form encoded format.
 
